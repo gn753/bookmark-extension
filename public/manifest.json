@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "북마크 앱입니다",
+  "version": "0.0.1",
+
+  "action": {
+    "default_title": "북마크 앱",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content_script.js"]
+    }
+  ],
+  "description": "React로 만드는 크롬 북마크 확장프로그램",
+  "options_page": "options.html",
+  "permissions": [
+    "storage",
+    "tabs",
+    "bookmarks", 
+    "topSites"
+  ]
+}
