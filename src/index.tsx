@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import Popup from "./Popup";
 import Options from "./Options";
@@ -8,8 +8,10 @@ import { Global } from "@emotion/react";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Global styles={reset} />
-    <Popup />
+    <Suspense fallback={<div>로딩중입니다</div>}>
+      <Global styles={reset} />
+      <Popup />
+    </Suspense>
   </React.StrictMode>,
   document.getElementById("popup") || document.createElement("div")
 );
