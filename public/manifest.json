@@ -13,12 +13,14 @@
       "js": ["content_script.js"]
     }
   ],
+  "web_accessible_resources": [
+    {
+      "resources": ["_favicon/*"],
+      "matches": ["<all_urls>"],
+      "extension_ids": ["*"]
+    }
+  ],
   "description": "React로 만드는 크롬 북마크 확장프로그램",
   "options_page": "options.html",
-  "permissions": [
-    "storage",
-    "tabs",
-    "bookmarks", 
-    "topSites"
-  ]
+  "permissions": ["storage", "tabs", "bookmarks", "topSites", "favicon"]
 }

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React, { useEffect, useState } from "react";
-import Container from "./Contaner";
+import Container from "./components/Bookmark";
 import { BookmarkTree } from "./type/index";
 
 const Popup: React.VFC = () => {
@@ -14,6 +14,7 @@ const Popup: React.VFC = () => {
     };
     getBookmarkTree();
   }, []);
+  console.log(bookmarks, "bookmarks");
 
   return <Wrap>{bookmarks && <Container bookmarkTreeData={bookmarks} />}</Wrap>;
 };
