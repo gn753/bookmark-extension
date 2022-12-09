@@ -1,22 +1,29 @@
 import styled from "@emotion/styled";
 import React, { useEffect, useState } from "react";
-import Container from "./components/Bookmark";
+import Bookmark from "./components/Bookmark";
 import { BookmarkTree } from "./type/index";
 
 const Popup: React.VFC = () => {
-  const [bookmarks, setBookmarks] = useState<BookmarkTree[]>();
+  const [bookmarkTree, setBookmarkTree] = useState<
+    chrome.bookmarks.BookmarkTreeNode[]
+  >([]);
 
   useEffect(() => {
     const getBookmarkTree = () => {
-      chrome.bookmarks.getTree((bookmarktreeNode) => {
-        setBookmarks(bookmarktreeNode);
+      chrome.bookmarks.getTree((bookmarkTreeNodes) => {
+        const bookmarkData = bookmarkTreeNodes[0].children;
+        setBookmarkTree(bookmarkData ? bookmarkData : []);
       });
     };
     getBookmarkTree();
   }, []);
-  console.log(bookmarks, "bookmarks");
+  console.log(bookmarkTree, "bookmarkTree");
 
-  return <Wrap>{bookmarks && <Container bookmarkTreeData={bookmarks} />}</Wrap>;
+  return (
+    <Wrap>
+      <Bookmark bookmarkTree={bookmarkTree} />
+    </Wrap>
+  );
 };
 
 export default Popup;

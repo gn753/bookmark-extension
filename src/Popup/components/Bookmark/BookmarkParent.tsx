@@ -2,15 +2,19 @@ import { BookmarkTree } from "../../type/index";
 import BookmarkChildren from "./BookmarkChildren";
 
 interface Props {
-  list: BookmarkTree;
+  tree: chrome.bookmarks.BookmarkTreeNode;
 }
 
-export default function BookmarkParent({ list }: Props) {
+export default function BookmarkParent({ tree }: Props) {
+  const { children } = tree;
+
   return (
-    <div>
-      {list.children?.map((child: BookmarkTree) => (
-        <BookmarkChildren key={child.id} list={child} />
-      ))}
-    </div>
+    <ul className="container">
+      {children &&
+        children.map((tree: BookmarkTree) => (
+          <BookmarkChildren key={tree.id} tree={tree} />
+        ))}
+    </ul>
   );
 }
+

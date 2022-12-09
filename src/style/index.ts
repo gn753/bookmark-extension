@@ -109,6 +109,13 @@ export const reset = css`
   ol,
   ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
   blockquote,
   q {

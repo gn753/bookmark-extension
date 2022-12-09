@@ -1,12 +1,16 @@
 import styled from "@emotion/styled";
+
 interface Props {
   title: string;
   url: string | undefined;
 }
+
+// const baseUrl = "https://www.google.com/s2/favicons?domain=";
+const baseUrl = "";
+
 export default function BookmarkItem({ title, url }: Props) {
   // const favicon = "chrome://favicon/" + url;
-  const favicon = "https://www.google.com/s2/favicons?domain=" + url;
-  console.log(favicon, "favicon");
+  const favicon = baseUrl + url;
   return (
     <BookmarkColor>
       <a href={url} target="blank">
@@ -17,13 +21,17 @@ export default function BookmarkItem({ title, url }: Props) {
   );
 }
 
-const BookmarkColor = styled.div`
+const BookmarkColor = styled.li`
   margin-bottom: 7px;
   a {
+    display: flex;
+    align-items: center;
     font-weight: normal;
     font-size: 14px;
-    color: red;
     text-decoration: none;
+  }
+  img {
+    margin-right: 4px;
   }
   span {
     font-weight: normal;

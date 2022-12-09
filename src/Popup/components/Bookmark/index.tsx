@@ -1,19 +1,24 @@
 import BookmarkParent from "./BookmarkParent";
 import { BookmarkTree } from "../../type/index";
 import styled from "@emotion/styled";
+import BookmarkChildren from "./BookmarkChildren";
 
 interface Props {
-  bookmarkTreeData: BookmarkTree[];
+  bookmarkTree: BookmarkTree[];
 }
 
-export default function Bookmark({ bookmarkTreeData }: Props) {
+export default function Bookmark({ bookmarkTree }: Props) {
   return (
     <Inner>
       <h1>북마크 앱입니다</h1>
-      {bookmarkTreeData &&
-        bookmarkTreeData.map((list: BookmarkTree) => (
-          <BookmarkParent list={list} />
-        ))}
+      {bookmarkTree.map((tree: BookmarkTree) => (
+        <ul className="containner">
+          {tree.children &&
+            tree.children.map((tree: BookmarkTree) => (
+              <BookmarkChildren key={tree.id} tree={tree} />
+            ))}
+        </ul>
+      ))}
     </Inner>
   );
 }
