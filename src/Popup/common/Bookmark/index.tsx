@@ -5,23 +5,22 @@ interface Props {
   url: string | undefined;
 }
 
-// const baseUrl = "https://www.google.com/s2/favicons?domain=";
-const baseUrl = "";
+const faviconBaseUrl = "https://www.google.com/s2/favicons?domain=";
 
-export default function BookmarkItem({ title, url }: Props) {
-  // const favicon = "chrome://favicon/" + url;
-  const favicon = baseUrl + url;
+export default function Bookmark({ title, url }: Props) {
+  const linkUrl = url;
+  const faviconUrl = faviconBaseUrl + linkUrl;
   return (
-    <BookmarkColor>
-      <a href={url} target="blank">
-        <img src={favicon} alt="파비콘" />
+    <Wrap>
+      <a href={linkUrl} target="blank">
+        <img src={faviconUrl} alt="파비콘" />
         <span>{title}</span>
       </a>
-    </BookmarkColor>
+    </Wrap>
   );
 }
 
-const BookmarkColor = styled.li`
+const Wrap = styled.div`
   margin-bottom: 7px;
   a {
     display: flex;

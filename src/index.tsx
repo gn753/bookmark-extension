@@ -5,13 +5,16 @@ import Options from "./Options";
 import reportWebVitals from "./reportWebVitals";
 import { reset } from "./style";
 import { Global } from "@emotion/react";
+import { RecoilRoot } from "recoil";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Suspense fallback={<div>로딩중입니다</div>}>
-      <Global styles={reset} />
-      <Popup />
-    </Suspense>
+    <RecoilRoot>
+      <Suspense fallback={<div>로딩중입니다</div>}>
+        <Global styles={reset} />
+        <Popup />
+      </Suspense>
+    </RecoilRoot>
   </React.StrictMode>,
   document.getElementById("popup") || document.createElement("div")
 );

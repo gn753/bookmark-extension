@@ -5,23 +5,24 @@ import { faFolder, faArrowDown } from "@fortawesome/free-solid-svg-icons";
 interface Props {
   title: string;
   handleToggle: () => void;
+
 }
 
 export default function Folder({ title, handleToggle }: Props) {
   return (
-    <FolderColor onClick={handleToggle}>
+    <Button onClick={handleToggle} >
       <Poasitoon>
         <FontAwesomeIcon icon={faArrowDown} color={"lightgray"} />
       </Poasitoon>
       <Margin>
         <FontAwesomeIcon icon={faFolder} color={"black"} />
       </Margin>
-      <span> {title} </span>
-    </FolderColor>
+      <span>{title}</span>
+    </Button>
   );
 }
 
-const FolderColor = styled.button`
+const Button = styled.button`
   position: relative;
   background-color: transparent;
   outline: none;

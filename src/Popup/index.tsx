@@ -1,34 +1,25 @@
 import styled from "@emotion/styled";
 import React, { useEffect, useState } from "react";
-import Bookmark from "./components/Bookmark";
-import { BookmarkTree } from "./type/index";
+import { useRecoilValue } from "recoil";
+import { searchInputTextState } from "./features/SearchFormBookamrk/globalStore";
 
-const Popup: React.VFC = () => {
-  const [bookmarkTree, setBookmarkTree] = useState<
-    chrome.bookmarks.BookmarkTreeNode[]
-  >([]);
+import InfinityBookmakList from "./features/InfinityBookmakList";
+import SearchFormBookamrk from "./features/SearchFormBookamrk";
 
-  useEffect(() => {
-    const getBookmarkTree = () => {
-      chrome.bookmarks.getTree((bookmarkTreeNodes) => {
-        const bookmarkData = bookmarkTreeNodes[0].children;
-        setBookmarkTree(bookmarkData ? bookmarkData : []);
-      });
-    };
-    getBookmarkTree();
-  }, []);
-  console.log(bookmarkTree, "bookmarkTree");
+export default function Popup() {
+  const searchInputext = useRecoilValue(searchInputTextState);
+
+  const render = searchInputext.length === 0;
 
   return (
-    <Wrap>
-      <Bookmark bookmarkTree={bookmarkTree} />
+    <Wrap id="wrap">
+      <SearchFormBookamrk />
+      {render && <InfinityBookmakList />}
     </Wrap>
   );
-};
+}
 
-export default Popup;
-
-const Wrap = styled.main`
+const Wrap = styled.div`
   width: 400px;
   height: 100%;
 `;
