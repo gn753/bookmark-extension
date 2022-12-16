@@ -21,6 +21,5 @@
     }
   ],
   "description": "React로 만드는 크롬 북마크 확장프로그램",
-  "options_page": "options.html",
-  "permissions": ["storage", "tabs", "bookmarks", "topSites", "favicon"]
+  "permissions": ["bookmarks", "favicon"]
 }

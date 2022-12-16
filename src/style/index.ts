@@ -132,4 +132,13 @@ export const reset = css`
     border-collapse: collapse;
     border-spacing: 0;
   }
+  button {
+    background: inherit;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    overflow: visible;
+    cursor: pointer;
+  }
 `;

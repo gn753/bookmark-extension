@@ -1,11 +1,11 @@
-import { BookmarkTree } from "../../../type";
+import { BookmarkTree } from "../../type";
 import { useState } from "react";
 import styled from "@emotion/styled";
-import Bookmark from "../../../common/Bookmark";
-import Folder from "../../../common/Folder";
+import Bookmark from "../common/Bookmark";
+import Folder from "../common/Folder";
 
 interface Props {
-  tree: chrome.bookmarks.BookmarkTreeNode;
+  tree: BookmarkTree;
   indent?: number;
 }
 
@@ -24,17 +24,22 @@ export default function BookmarkList({ tree, indent = 0 }: Props) {
             paddingLeft: indent,
           }}
         >
-          <Folder title={tree.title} handleToggle={handleToggle} />
-          <ToggleEvent toggle={toggle}>
-            {tree.children?.map((child: BookmarkTree) => (
-              <BookmarkList key={child.id} tree={child} indent={15} />
-            ))}
-          </ToggleEvent>
+          <li>
+            <Folder title={tree.title} handleToggle={handleToggle} />
+            <ToggleEvent toggle={toggle}>
+              {tree.children?.map((child: BookmarkTree) => (
+                <BookmarkList key={child.id} tree={child} indent={15} />
+              ))}
+            </ToggleEvent>
+          </li>
         </ul>
       ) : (
-        <li>
-          <Bookmark title={tree.title} url={tree.url} />
-        </li>
+        <Bookmark
+          key={tree.id}
+          title={tree.title}
+          url={tree.url}
+          id={tree.id}
+        />
       )}
     </>
   );
@@ -44,7 +49,7 @@ interface ToggleProps {
   toggle: boolean;
 }
 
-const ToggleEvent = styled.div<ToggleProps>`
+const ToggleEvent = styled.ul<ToggleProps>`
   height: ${(props) => (props.toggle ? "auto" : 0)};
   overflow: ${(props) => (props.toggle ? "visible" : "hidden")};
 `;

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import fetchSearchBookmark from "../api/fetchSearchBookmark";
 
 export function useGetSearchBookmarkList(text: string) {
   const [searchResults, setSearchResults] = useState<
@@ -6,14 +7,13 @@ export function useGetSearchBookmarkList(text: string) {
   >([]);
 
   useEffect(() => {
-    const searchBookmarkList = (text: string) => {
+    const getSearchBookmarkList = async () => {
       if (text.length > 0) {
-        chrome.bookmarks.search(text, (results) => {
-          setSearchResults(results);
-        });
+        const data = await fetchSearchBookmark(text);
+        setSearchResults(data);
       }
     };
-    searchBookmarkList(text);
+    getSearchBookmarkList();
   }, [text]);
 
   return { searchResults };

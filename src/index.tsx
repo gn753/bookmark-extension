@@ -1,7 +1,6 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import Popup from "./Popup";
-import Options from "./Options";
 import reportWebVitals from "./reportWebVitals";
 import { reset } from "./style";
 import { Global } from "@emotion/react";
@@ -17,14 +16,6 @@ ReactDOM.render(
     </RecoilRoot>
   </React.StrictMode>,
   document.getElementById("popup") || document.createElement("div")
-);
-
-ReactDOM.render(
-  <React.StrictMode>
-    <Global styles={reset} />
-    <Options />
-  </React.StrictMode>,
-  document.getElementById("options") || document.createElement("div")
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,7 +1,7 @@
-import Bookmark from "../../../common/Bookmark";
-
+import Bookmark from "../common/Bookmark";
+import { BookmarkTree } from "../../type";
 interface Props {
-  searchResults: chrome.bookmarks.BookmarkTreeNode[];
+  searchResults: BookmarkTree[];
 }
 
 export default function SearchList({ searchResults }: Props) {
@@ -12,11 +12,7 @@ export default function SearchList({ searchResults }: Props) {
   return (
     <ul>
       {searchResults.map((data) => {
-        return (
-          <li>
-            <Bookmark title={data.title} url={data.url} />
-          </li>
-        );
+        return <Bookmark title={data.title} url={data.url} id={data.id} />;
       })}
     </ul>
   );

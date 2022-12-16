@@ -1,10 +1,8 @@
 import styled from "@emotion/styled";
-import React, { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
-import { searchInputTextState } from "./features/SearchFormBookamrk/globalStore";
-
-import InfinityBookmakList from "./features/InfinityBookmakList";
-import SearchFormBookamrk from "./features/SearchFormBookamrk";
+import { searchInputTextState } from "./recoil/atoms/searchInputTextState";
+import InfinityBookmakList from "./components/InfinityBookmakList";
+import SearchFormBookamrk from "./components/SearchFormBookamrk";
 
 export default function Popup() {
   const searchInputext = useRecoilValue(searchInputTextState);
@@ -20,6 +18,7 @@ export default function Popup() {
 }
 
 const Wrap = styled.div`
-  width: 400px;
-  height: 100%;
+  width: 260px;
+  height: 500px;
+  padding: 8px 16px;
 `;

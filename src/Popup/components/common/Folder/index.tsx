@@ -1,21 +1,20 @@
 import styled from "@emotion/styled";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFolder, faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import ArrowDownIcon from "../Icon/ArrowDownIcon";
+import FolderIcon from "../Icon/FolderIcon";
 
 interface Props {
   title: string;
   handleToggle: () => void;
-
 }
 
 export default function Folder({ title, handleToggle }: Props) {
   return (
-    <Button onClick={handleToggle} >
+    <Button onClick={handleToggle}>
       <Poasitoon>
-        <FontAwesomeIcon icon={faArrowDown} color={"lightgray"} />
+        <ArrowDownIcon />
       </Poasitoon>
       <Margin>
-        <FontAwesomeIcon icon={faFolder} color={"black"} />
+        <FolderIcon />
       </Margin>
       <span>{title}</span>
     </Button>
