@@ -1,11 +1,10 @@
+import { BookmarkTree } from "./../type/index";
 import { useCallback, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { atom } from "recoil";
 import fetchBookmarkTree from "../api/fetchBookmarkTree";
 
-type Response = chrome.bookmarks.BookmarkTreeNode[] | undefined;
-
-export const bookmarkState = atom<Response>({
+export const bookmarkState = atom<BookmarkTree>({
   key: "bookmarkState",
   default: [],
 });

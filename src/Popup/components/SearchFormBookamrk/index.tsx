@@ -3,6 +3,7 @@ import { searchInputTextState } from "../../recoil/atoms/searchInputTextState";
 import { useGetSearchBookmarkList } from "../../hooks/useGetSearchBookmarkList";
 import SearchInput from "./SearchInput";
 import SearchList from "./SearchList";
+import styled from "@emotion/styled";
 
 export default function SearchFormBookamrk() {
   const inputText = useRecoilValue(searchInputTextState);
@@ -11,11 +12,13 @@ export default function SearchFormBookamrk() {
   const render = inputText.length > 0;
 
   return (
-    <>
-      <div>
-        <SearchInput />
-        {render && <SearchList searchResults={searchResults} />}
-      </div>
-    </>
+    <Wrap id="header">
+      <SearchInput />
+      {render && <SearchList searchResults={searchResults} />}
+    </Wrap>
   );
 }
+
+const Wrap = styled.div`
+  padding: 8px 16px;
+`;

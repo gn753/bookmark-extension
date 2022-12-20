@@ -1,24 +1,24 @@
 import styled from "@emotion/styled";
-import removeBookmark from "../../../api/removeBookmark";
-import useGetBookmarkTree from "../../../hooks/useGetBookmarkTree";
-import { RemoveIcon } from "../Icon/RemoveIcon";
+import removeBookmark from "../../../../api/removeBookmark";
+import useGetBookmarkTree from "../../../../hooks/useGetBookmarkTree";
+import { RemoveIcon } from "../../Icon/RemoveIcon";
 
 interface Props {
   id: string;
 }
 
-export default function BookmarkRemove({ id }: Props) {
+export default function BookmarkRemoveButton({ id }: Props) {
   const { getBookmarkTree } = useGetBookmarkTree();
 
-  const onRemoveConfirm = () => {
+  const handleRemoveConfirm = () => {
     if (window.confirm("북마크를 제거합니까?")) {
       removeBookmark(id);
       getBookmarkTree();
-    }
+    } else return;
   };
 
   return (
-    <Button onClick={onRemoveConfirm}>
+    <Button onClick={handleRemoveConfirm}>
       <RemoveIcon />
     </Button>
   );

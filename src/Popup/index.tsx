@@ -6,7 +6,6 @@ import SearchFormBookamrk from "./components/SearchFormBookamrk";
 
 export default function Popup() {
   const searchInputext = useRecoilValue(searchInputTextState);
-
   const render = searchInputext.length === 0;
 
   return (
@@ -20,5 +19,4 @@ export default function Popup() {
 const Wrap = styled.div`
   width: 260px;
   height: 500px;
-  padding: 8px 16px;
 `;

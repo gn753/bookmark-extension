@@ -1,19 +1,20 @@
-import Bookmark from "../common/Bookmark";
+import Bookmark from "../common/Bookmark/BookmarkItem";
 import { BookmarkTree } from "../../type";
 interface Props {
-  searchResults: BookmarkTree[];
+  searchResults: BookmarkTree;
 }
 
 export default function SearchList({ searchResults }: Props) {
-  if (searchResults.length === 0) {
+  if (searchResults && searchResults.length === 0) {
     return null;
   }
 
   return (
     <ul>
-      {searchResults.map((data) => {
-        return <Bookmark title={data.title} url={data.url} id={data.id} />;
-      })}
+      {searchResults &&
+        searchResults.map((data) => {
+          return <Bookmark url={data.url} id={data.id} title={data.title} />;
+        })}
     </ul>
   );
 }
