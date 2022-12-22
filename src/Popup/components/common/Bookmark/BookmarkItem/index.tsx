@@ -10,7 +10,6 @@ interface Props {
 }
 
 export default function BookmarkItem({ title, url, id }: Props) {
-  console.log("북마크입니다");
   return (
     <Wrap>
       <BookmarkLink href={url} target="blank" role="button">

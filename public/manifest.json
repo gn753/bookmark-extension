@@ -1,17 +1,15 @@
 {
   "manifest_version": 3,
-  "name": "북마크 앱입니다",
+  "name": "EZ Bookmark Manger",
   "version": "0.0.1",
 
   "action": {
     "default_title": "북마크 앱",
-    "default_popup": "popup.html"
-  },
-  "content_scripts": [
-    {
-      "matches": ["http://*/*", "https://*/*"]
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "img/logo-128.png"
     }
-  ],
+  },
   "web_accessible_resources": [
     {
       "resources": ["_favicon/*"],
@@ -19,6 +17,6 @@
       "extension_ids": ["*"]
     }
   ],
-  "description": "React로 만드는 크롬 북마크 확장프로그램",
+  "description": "북마크를 편리하게 탐색하고 삭제해보세요",
   "permissions": ["bookmarks", "favicon"]
 }
