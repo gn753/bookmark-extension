@@ -35,4 +35,5 @@ const BookmarkLink = styled.a`
   font-size: 14px;
   text-decoration: none;
   cursor: pointer;
+  color: #000;
 `;

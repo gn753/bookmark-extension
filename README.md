@@ -10,7 +10,6 @@
 
 </div>
 
-
 ## 사용방법
 
 다음 방법을 통해 사용이 가능합니다.
@@ -19,7 +18,6 @@
 - 크롬 도구 더보기에서 확장 프로그램으로 들어가주세요.
 - 우측 최상단에 개발자 모드를 체크해주세요.
 - 마지막으로 좌측 상단 "압축해재된 확장프로그램 로드"버튼 클릭 해 빌드 폴더를 올리면 완료입니다
-
 
 ## 사용기술
 
@@ -89,4 +87,5 @@
 
 ## 소개 영상
 
-[![유튜브 영상](http://img.youtube.com/vi/yjP81YMyfsE/0.jpg)](https://youtu.be/yjP81YMyfsE?t=0s)
+[![유튜브 영상](http://img.youtube.com/vi/yjP81YMyfsE/0.jpg)](https://youtu.be/yjP81YMyfsE?t=0s)  
+<a href="http://img.youtube.com/vi/yjP81YMyfsE/0.jpg)](https://youtu.be/yjP81YMyfsE?t=0s">링크 클릭</a>
