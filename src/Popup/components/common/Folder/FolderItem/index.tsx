@@ -31,6 +31,7 @@ const FolderWrap = styled.div`
   background-color: transparent;
   padding: 0;
   margin-bottom: 7px;
+  cursor: pointer;
   :focus {
     background: rgb(245, 245, 245);
   }
