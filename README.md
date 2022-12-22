@@ -2,7 +2,7 @@
 
 <div style="display:flex;justify-content:space-between">
 
-- FE-Bookmark는 크롬기반의 북마크 탐색 확장 프로그램입니다.
+- EZ/Bk-manger는 크롬기반의 북마크 탐색 확장 프로그램입니다.
 - 웹 페이지의 북마크를 팝업버튼 한번으로 편리하게 탐색과 삭제가 가능합니다.
 - 더 이상 여러 경로를 거쳐서 북마크를 찾지마세요!
 
@@ -27,6 +27,8 @@
 - CSS in JS Emotion
 
 ## 구조
+
+<img src="docs/img/bookmark-layer.png"/>
 
 - 공통 컴포넌트는 Commn폴더에 잘게 쪼개 재사용성과 가독성을 높였습니다.
 
